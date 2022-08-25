@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{ "title":"SCOOTER" })
+
+	<body>
+		<div class="wrapper">
+			@@include('_header.html',{})
+			<main class="center">
+				<div class="center__wrapper">
+					<div class="center__body body-center">
+						<section class="body-center__swiper">
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"></div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+							<div class="body-center__zakaz zakaz">
+								<h1 class="zakaz__title">Купить электросамокат</h1>
+								<p class="zakaz__text">Самые выгодные цены у нас</p>
+								<button class="zakaz__btn _btn">Заказать</button>
+							</div>
+							<div class="body-center__form form-center">
+								<form action="#" class="form-center__form form">
+									<span class="form__cross"></span>
+									<p>Имя*</p>
+									<input
+										class="form__name"
+										type="text"
+										name="userName"
+										placeholder="Имя"
+										required
+									/>
+									<p>Телефон*</p>
+									<input
+										class="form__tel"
+										type="tel"
+										name="userTel"
+										placeholder="+7 978 111 11 11"
+										required
+									/>
+									<label class="form__cond">
+										<input type="checkbox" name="conditions" required />
+										Принимаю условия
+									</label>
+									<button class="form__btn _btn" type="submit">
+										Отправить
+									</button>
+								</form>
+							</div>
+						</section>
+						<section class="body-center__goods goods-center _container">
+							<h2 class="goods-center__title">Преимущество</h2>
+							<ul class="goods-center__list">
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/01.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/02.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/03.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/04.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/05.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+								<li class="goods-center__item goods-item">
+									<div class="goods-item__img">
+										<img src="img/06.jpg" alt="foto" />
+									</div>
+									<div class="goods-item__content">
+										<h1>Model cross</h1>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Praesentium odio dicta molestias rem
+										</p>
+									</div>
+								</li>
+							</ul>
+							<button class="goods-center__btn _btn">Заказать</button>
+						</section>
+					</div>
+				</div>
+			</main>
+			@@include('_footer.html',{})
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		@@include('_js.html',{})
+	</body>
+</html>

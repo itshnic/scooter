@@ -1,0 +1,108 @@
+@import "mixins";
+.footer {
+	&__wrapper {
+		background: $mainColor;
+		color: #fff;
+		@include adaptiv-value(padding, 35, 10, 2);
+		width: 100%;
+	}
+
+	&__body {
+	}
+}
+.body-footer {
+	width: 100%;
+	&__title {
+		text-align: center;
+		@include adaptiv-value(margin-bottom, 50, 20, 1);
+		font-weight: bold;
+		font-size: 1.2em;
+	}
+	&__content {
+		display: flex;
+	}
+}
+.content-footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	justify-content: center;
+	gap: 20px;
+	@media (max-width: #{$md2 + px}) {
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+
+	&__map {
+		flex: 0 1 45%;
+		@media (max-width: #{$md2 + px}) {
+			flex: 0 1 100%;
+		}
+	}
+
+	&__contacts {
+		flex: 0 1 45%;
+		@media (max-width: #{$md2 + px}) {
+			flex: 0 1 auto;
+		}
+	}
+}
+.contacts-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.contacts-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@include adaptiv-value(margin-bottom, 40, 20, 1);
+
+	& span {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__mail {
+		font-weight: bold;
+		color: #ffff;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+				text-underline-offset: 6px;
+			}
+		}
+	}
+}
+
+.massage-contacts {
+	font-size: 2em;
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	color: $orangeColor;
+
+	&__viber {
+		transition: color ease 0.5s;
+		cursor: pointer;
+		color: $orangeColor;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #7e57c2;
+			}
+		}
+	}
+
+	&__whats {
+		transition: color ease 0.5s;
+		cursor: pointer;
+		color: $orangeColor;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #00a884;
+			}
+		}
+	}
+}

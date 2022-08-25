@@ -1,0 +1,278 @@
+@import "mixins";
+
+//<ОБЩИЕ ПАРАМЕТРЫ>=======================
+body {
+	color: $mainColor;
+	background: $backgroundColor;
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>=================
+
+//<ОБОЛОЧКА>=================
+.wrapper {
+	letter-spacing: 0.05em;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+//</ОБОЛОЧКА>==================
+
+//<ОСНОВНАЯ СЕТКА>===================
+._container {
+	max-width: $maxWidthContainer + px;
+	padding: 0 15px 0 15px;
+	margin: 0 auto;
+}
+//</ОСНОВНАЯ СЕТКА>==================
+
+//<ОСНОВНОЙ БЛОК>================
+.center {
+	flex: 1 1 auto;
+	&__wrapper {
+	}
+
+	&__body {
+	}
+}
+.body-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&__swiper {
+		position: relative;
+		width: 100%;
+		@include adaptiv-value(margin-bottom, 50, 20, 1);
+	}
+
+	&__goods {
+	}
+}
+.swiper {
+	width: 100%;
+}
+.swiper-wrapper {
+	width: 100%;
+}
+.swiper-slide {
+	background: url("../img/bg.jpg") no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 670px;
+	@media (max-width: #{$md2 + px}) {
+		min-height: 500px;
+	}
+	@media (max-width: #{$md4 + px}) {
+		min-height: 400px;
+	}
+}
+
+.zakaz {
+	position: absolute;
+	z-index: 5;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffff;
+	flex-direction: column;
+	text-align: center;
+	&__title {
+		@include adaptiv-value(font-size, 40, 30, 1);
+		margin-bottom: 20px;
+	}
+
+	&__text {
+		margin-bottom: 20px;
+		@include adaptiv-value(margin-bottom, 20, 12, 1);
+	}
+}
+
+._btn {
+	font-size: 1.2em;
+	color: #ffff;
+	background: $orangeColor;
+	border: 1px solid #ffff;
+	border-radius: 5px;
+	@include adaptiv-value(min-height, 50, 45, 1);
+	display: flex;
+	align-items: center;
+	padding: 0 30px;
+	transition: all 0.5s;
+	// cursor: pointer;
+	@media (any-hover: hover) {
+		&:hover {
+			background: #ffff;
+			border: 1px solid $orangeColor;
+			color: $orangeColor;
+		}
+	}
+}
+
+.form-center {
+	background: rgba(0, 0, 0, 0.788);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	opacity: 0;
+	transition: all ease 0.5s;
+	&._active {
+		overflow: visible;
+		opacity: 1;
+		z-index: 10;
+	}
+}
+.form {
+	position: relative;
+	padding: 40px 30px;
+	background: #ffffff;
+	box-shadow: 4px 4px 20px #e3e3e3;
+	display: flex;
+	border-radius: 5px;
+	flex-direction: column;
+	max-width: 300px;
+	& p {
+		margin-bottom: 10px;
+	}
+	&__cross {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 10;
+		display: block;
+		width: 1.5em;
+		height: 1.2em;
+		margin-right: 10px;
+		cursor: pointer;
+		&::after,
+		&::before {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 15%;
+			background: $orangeColor;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: rotate(-45deg) translate(0, -65%);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 50%;
+			transform: rotate(45deg) translate(0, 70%);
+		}
+	}
+	&__name,
+	&__tel {
+		border: 1px solid $mainColor;
+		border-radius: 5px;
+		margin-bottom: 30px;
+		padding: 5px 10px;
+	}
+	&__cond {
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+	&__btn {
+		align-self: center;
+	}
+}
+
+.goods-center {
+	&__title {
+		text-align: center;
+		@include adaptiv-value(margin-bottom, 50, 30, 1);
+		@include adaptiv-value(font-size, 40, 30, 1);
+		font-weight: bold;
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px;
+		@include adaptiv-value(margin-bottom, 60, 30, 1);
+		@media (max-width: #{$md2 + px}) {
+			flex-direction: column;
+		}
+	}
+
+	&__btn {
+		margin: 0 auto;
+		@include adaptiv-value(margin-bottom, 60, 30, 1);
+	}
+}
+
+.goods-item {
+	width: 48%;
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	padding: 40px 30px;
+	background: #ffffff;
+	box-shadow: 4px 4px 20px #e3e3e3;
+	border-radius: 5px;
+	transition: transform ease 0.5s;
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+	@media (max-width: #{$md2 + px}) {
+		width: 80%;
+	}
+	@media (max-width: #{$md4 + px}) {
+		width: 100%;
+		padding: 20px;
+	}
+
+	&__img {
+		position: relative;
+		padding-top: 40%;
+		width: 100%;
+		margin-right: 10px;
+		@media (max-width: #{$md2 + px}) {
+			padding-top: 50%;
+		}
+		@media (max-width: #{$md3 + px}) {
+			padding-top: 50%;
+		}
+		@media (max-width: #{$md4 + px}) {
+			padding-top: 50%;
+		}
+		& img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__content {
+		& h1 {
+			font-weight: 700;
+			@include adaptiv-value(font-size, 32, 14, 1);
+			margin-bottom: 10px;
+		}
+		& p {
+			@include adaptiv-value(font-size, 28, 12, 1);
+		}
+	}
+}
+
+//</ОСНОВНОЙ БЛОК>================

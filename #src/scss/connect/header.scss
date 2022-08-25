@@ -1,0 +1,152 @@
+@import "mixins";
+.header {
+	&__wrapper {
+		@include adaptiv-value(padding-left, 35, 5, 2);
+		@include adaptiv-value(padding-right, 35, 5, 2);
+		@include adaptiv-value(padding-top, 15, 10, 2);
+		@include adaptiv-value(padding-bottom, 15, 10, 2);
+	}
+}
+.body-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__logo {
+		position: relative;
+		z-index: 15;
+		& img {
+			@include adaptiv-value(height, 100, 60, 1);
+		}
+	}
+}
+.menu-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 55%;
+	@media (max-width: #{$md2 + px}) {
+		justify-content: end;
+		gap: 20px;
+	}
+
+	& a {
+		color: $mainColor;
+	}
+	&__phone {
+		display: flex;
+		align-items: center;
+		& span {
+		}
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include adaptiv-value(gap, 90, 0, 2);
+		@media (max-width: #{$md1 + px}) {
+			flex-direction: column;
+			align-items: end;
+			position: absolute;
+			top: 0;
+			right: -100%;
+			overflow: hidden;
+			opacity: 0;
+			background: #ffffff;
+			box-shadow: 4px 4px 20px #e3e3e3;
+			border-radius: 10px;
+			padding: 60px 20px 30px 30px;
+			gap: 20px;
+			z-index: 5;
+			transition: all ease 0.5s;
+			&._is-active {
+				right: 0;
+				opacity: 1;
+				overflow: visible;
+			}
+		}
+		@media (max-width: #{$md3 + px}) {
+			min-width: 300px;
+		}
+	}
+
+	&__item {
+		&:hover {
+			text-decoration: underline;
+			text-underline-offset: 6px;
+		}
+	}
+	&__burger {
+		display: none;
+		@media (max-width: #{$md1 + px}) {
+			display: block;
+			width: 1.5em;
+			height: 1.2em;
+			position: relative;
+			z-index: 10;
+			margin-right: 10px;
+			&::after,
+			&::before,
+			& span {
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 15%;
+				background: $mainColor;
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+			}
+			& span {
+				position: absolute;
+				top: 50%;
+				transform: scale(1) translate(0px, -50%);
+			}
+			&._is-active {
+				&::after {
+					transition: all 0.3s;
+					top: 50%;
+					transform: rotate(-45deg) translate(0, -65%);
+				}
+				&::before {
+					transition: all 0.3s;
+					bottom: 50%;
+					transform: rotate(45deg) translate(0, 70%);
+				}
+				& span {
+					transition: all 0.5s;
+					transform: scale(0);
+				}
+			}
+		}
+	}
+}
+
+.phone-header {
+	&__icon {
+		margin-right: 10px;
+		border-radius: 50%;
+		background: $orangeColor;
+		color: #ffff;
+		width: 2em;
+		height: 2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__number {
+		&:hover {
+			text-decoration: underline;
+			text-underline-offset: 6px;
+		}
+	}
+}
